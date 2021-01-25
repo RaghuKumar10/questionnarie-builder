@@ -1,0 +1,39 @@
+<div class="row my-4">
+  <div class="col-md-12">
+    <button class="btn btn-primary" (click)="addQuestions()">
+      Add Questions
+    </button>
+  </div>
+</div>
+
+<div class="row" *ngIf="showQuestionTypes">
+  <div class="col-md-12">
+    <button class="btn btn-primary mr-3" (click)="showBuilder()">
+      Free Form
+    </button>
+    <button class="btn btn-primary mr-3" (click)="showBuilder()">
+      Constrained List
+    </button>
+    <button class="btn btn-primary mr-3" (click)="showBuilder()">Date</button>
+    <button class="btn btn-primary mr-3" (click)="showBuilder()">
+      Date Time
+    </button>
+    <button class="btn btn-primary mr-3" (click)="showBuilder()">
+      Currency
+    </button>
+  </div>
+</div>
+
+<div class="row mt-4" *ngIf="showQustionnaireBuilder">
+  <div class="col-md-6">
+    <app-questionnaire-preview
+      [questionnaire]="questionnaire"
+    ></app-questionnaire-preview>
+  </div>
+  <div class="col-md-6">
+    <app-questionnaire-form
+      (previewQuestionnaireEvent)="previewEventHandler($event)"
+    >
+    </app-questionnaire-form>
+  </div>
+</div>

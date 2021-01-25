@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12">
+    <div *ngFor="let control of questionnaire" class="form-group">
+      <label>{{ control.question }}</label>
+      <input
+        *ngIf="control.type == 'text'"
+        [type]="control.type"
+        [maxlength]="control.characterLimit"
+        [pattern]="control.pattern"
+        name="control.name"
+        ngModel
+        [required]="control.mandatory"
+        class="form-control"
+      />
+      <textarea
+        *ngIf="control.type == 'textarea'"
+        class="form-control"
+        [rows]="control.rows"
+        [pattern]="control.pattern"
+        name="control.name"
+        ngModel
+        [maxlength]="control.characterLimit"
+        [required]="control.mandatory"
+      ></textarea>
+    </div>
+  </div>
+</div>
